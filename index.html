@@ -1,1 +1,377 @@
-<html><body><script type="text/javascript" src="/aes.js" ></script><script>function toNumbers(d){var e=[];d.replace(/(..)/g,function(d){e.push(parseInt(d,16))});return e}function toHex(){for(var d=[],d=1==arguments.length&&arguments[0].constructor==Array?arguments[0]:arguments,e="",f=0;f<d.length;f++)e+=(16>d[f]?"0":"")+d[f].toString(16);return e.toLowerCase()}var a=toNumbers("f655ba9d09a112d4968c63579db590b4"),b=toNumbers("98344c2eee86c3994890592585b49f80"),c=toNumbers("25da1834e90640e51a92d18bf8e61049");document.cookie="__test="+toHex(slowAES.decrypt(c,2,a,b))+"; expires=Thu, 31-Dec-37 23:55:55 GMT; path=/"; location.href="http://mariorenemonti.260mb.net/?i=1";</script><noscript>This site requires Javascript to work, please enable Javascript in your browser or use a browser with Javascript support</noscript></body></html>
+<!DOCTYPE html>
+<html lang="es">
+    <!-- para este trabajo tome como base descargue una plantilla que esta alojada en:
+    https://startbootstrap.com/theme/resume
+    en primer modifique la apariencia con los colores, estas modificaciones estan documentadas en el css
+    fui probando con diferentes colores tanto que coincida el panel lateral los iconos y los links 
+    luego puse mi propio favicon
+    añadi los datos del protocolo open graf
+    añadi y modifique los iconos de las redes sociales 
+    se añade el icono de whatsapp para poder enviar mensaje directamente
+    luego entre ellos hay dos mas que tienen la funcionalidad de:
+    el primero descargar la pagina web en forma dinamica, solo descarga la primer hoja no logre que descargue completa
+    el segundo visualiza una version en pdf de mi CV y desde alli se puede descargar
+    en el segundo panel donde estan los datos dividi el mismo en una seccion de 11 columnas y otra de de una
+    en este ultimo añadi dos videos que describen y brinda mas detalles sobre mi y sobre mi experiencia laboral
+    en el archivo script.js al final del mismo estan añadidas y documentadas las funciones del CV online
+    la ultima modificacion que se agregó es que el video salga centrado cuando se trata de pantallas pequeñas
+    en principio parecia un trabajo sencillo pero me obligo a aprender muchas cosas en especial de boodstrap
+     -->
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>CV Mario Rene Monti</title>
+        
+        <!-- Font Awesome icons (free version)-->
+        
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        
+        <!-- inclusion de favicon -->
+        <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
+        <link rel="icon" type="image/x-icon" href="imagenes/favicon.ico">
+
+        <!-- datos protocolo opengraf -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="imagenes/CV Mario Rene Monti" />
+        <meta property="og:description" content="Detalle de los puntos mas importantes en el CV de Mario Rene Monti" />
+        <meta property="og:image" content="foto cv mario rene monti.jpg" />
+        <meta property="og:image:width" content="60" />
+        <meta property="og:image:height" content="75" />
+        <meta property="og:url" content="http://mariorenemonti.260mb.net/" />
+        <meta property="og:site_name" content="CV" />
+
+        <!-- Agregar la referencia a la librería jsPDF 
+        no logro que funcionen asi que agrego el archivo jspdf.js con la etiqueta script al final del presente
+        index html
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script> -->
+    </head>
+    <body id="page-top">
+      
+
+        <!-- Navigation-->
+        <!-- esta línea de código define:
+            navbar fixed-top: una barra de navegación fija en la parte superior de la pantalla,
+             navbar-dark: con un fondo oscuro y de color primario, 
+             navbar-expand-lg:  se expandirá en pantallas de tamaño grande. 
+              se le asigna un identificador para poder manipularla desde el código 
+             JavaScript o CSS si fuera necesario.-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <!-- La clase "js-scroll-trigger" se utiliza para activar una función de desplazamiento suave 
+                en lugar del salto brusco que ocurre al hacer clic en un enlace normal-->
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Mario René Monti</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="imagenes/foto cv mario rene monti.jpg" alt="Mario René Monti" /></span>
+            </a>
+            <h3>
+                Mario Rene Monti
+            </h3>
+            <h4>Director de Produccion y Medio Ambiente</h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Sobre Mi</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Formación</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Trabajos</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Intereses</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Conocimientos Adquiridos</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <!-- container fluid dice que ocupe todla la pantalla     -->
+        <div class="container-fluid p-0">
+            <!-- Sobre Mi-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Mario Rene
+                        <span class="text-primary">Monti</span>
+                    </h1>
+                    <div class="subheading mb-5">
+                        Libertad 132 Barrio Malvinas Argentinas, Monterrico - Jujuy - Argentina(C.P. 8608) Cel +5493884130014·
+                        <a href="mailto:mariorenemonti@gmail.com">mariorenemonti@gmail.com</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-11">
+                          <!-- contenido de la columna izquierda -->
+                          <p class="lead mb-5">Con una amplia experiencia en liderazgo y organización, he demostrado mis habilidades al dirigir equipos de trabajo en diversos proyectos y al planificar y llevar a cabo exitosamente torneos y competiciones. Estas habilidades transferibles son valiosas en cualquier rol que requiera la capacidad de motivar y coordinar a un equipo para alcanzar objetivos comunes y garantizar la eficiencia y efectividad en el desarrollo de proyectos.</p>
+                    
+                        </div>
+                        <div class="col-lg-1 video-container">
+                            <!-- contenido de la columna derecha -->
+                            
+                            <video width="120" height="150" controls preload>
+                                
+                                <source src="multimedia/01 CV Mario Rene Monti Sobre Mi.mp4" type="video/mp4">
+                                <!-- <source src="ruta-del-video.webm" type="video/webm"> -->
+                                Tu navegador no soporta la etiqueta de video.
+                            </video>
+                            <p>NOTA: la voz del video fue generada con IA</p>
+                      
+                        </div>
+                    </div>
+                      
+                    <div id="fixed-icons">
+                        <div class="social-icons">
+                            <!-- <center><a class="nav-link js-scroll-trigger" href="#experience"><button class="btn-arrow-down">Experiencia<i class="fas fa-angle-down"></i></button></a></center> -->
+                            <!-- probando boton de navegacion ***** no lo voy a utilizar 
+                            <button class="btn-arrow-down"><i class="fas fa-angle-down"></i></button> 
+                                aqui puedo agregar mis redes sociales, en este caso un boton de whatsapp
+                            luego un boton para descargar una version impresa dle CV
+                            y el canal de youtube, todos se mantienen abajo en la pantalla en un costado de la misma
+                            por mas que hagan scroll los botones siempre estan a la mano
+                            esto se logra con el div id="fixed-icons"-->
+                            
+                            <a class="social-icon" href="https://www.linkedin.com/in/mario-rene-monti-6568105a/"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="social-icon" href="https://github.com/lallamacoin"><i class="fab fa-github"></i></a>
+                            <a class="social-icon" href="https://twitter.com/MarioReneMonti1"><i class="fab fa-twitter"></i></a>
+                            <a class="social-icon" href="https://www.youtube.com/channel/UCnFZI-l6NjcXlRyvbejetZg"><i class="fab fa-youtube"></i></a>
+                            <a class="social-icon" href="https://wa.me/5493884130014?text=Contacto%20Via%20Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                            <a class="social-icon" href="https://www.facebook.com/mrmjujuy"><i class="fab fa-facebook-f"></i></a>
+                            <!-- DESCARGA LA WEB COMPLETA COMO PDF (SOLO MEDESCARGA LA PRIMER HOJA) -->
+                            <a class="social-icon" href="#" id="download-pdf-button"><i class="fas fa-download"></i></a>
+                            <!--dESCARGA EL DOCUMENTO QUE YO PROVEO-->
+                            <a class="social-icon" 
+                                href="archivos/CV Mario Rene Monti 16 febrero 2023.pdf" target="_blank">
+                                <!-- <i class="fas fa-file-pdf"></i>  dos iconos de pdf a ver cual queda mejor     -->
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </a>
+                                
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Experiencia laboral-->
+            <section class="resume-section" id="experience">
+                <div class="resume-section-content">
+                    <div class="row">
+                        <div class="col-lg-11">
+                            <!-- contenido de la columna izquierda -->
+                            <h2 class="mb-5">Experiencia</h2>
+                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">Director de Producción y Medio Ambiente</h3>
+                                    <div class="subheading mb-3">Municipalidad de Monterrico-Jujuy</div>
+                                    <p>Con el objetivo de mejorar la calidad de vida de la comunidad de Monterrico, asumo el cargo de director el 30 de Diciembre del 2022, enfrentando una serie de desafíos y objetivos por alcanzar.</p>
+                                </div>
+                                <div class="flex-shrink-0"><span class="text-primary">Diciembre 2022 - Presente</span></div>
+                            </div>
+                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">Jefe del Equipo Técnico de la Dirección de Producción y Medio Ambiente</h3>
+                                    <div class="subheading mb-3">Municipalidad de Monterrico-Jujuy</div>
+                                    <p>Me convocan para dirigir una serie de proyectos de suma importancia para el desarrollo de la comunidad de Monterrico. Entre ellos se encuentran:</p>
+
+                                    <ul>
+                                        <li>Plan GIRSU: gestión integral de residuos sólidos urbanos.</li>
+                                        <li>Municipio Saludable: lucha contra el dengue.</li>
+                                        <li>Oficina de Empleo: programa de jóvenes emprendedores.</li>
+                                        <li>Microsol: créditos solidarios para emprendedores que recién inician.</li>
+                                    </ul>
+                                    <p>Además, como parte de mis responsabilidades, también lideré el área de comunicación social y soporte informático del Área. Esto me permitó garantizar una comunicación efectiva y un correcto funcionamiento de los sistemas informáticos.</p>
+
+                                    <p>Estos proyectos buscan mejorar la calidad de vida de la comunidad de Monterrico y fomentar el desarrollo económico de la región.</p>
+                                    
+                                </div>
+                                <div class="flex-shrink-0"><span class="text-primary">Enero 2022 - Diciembre 2022</span></div>
+                            </div>
+                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">Equipo Técnico Direccion de Deportes</h3>
+                                    <div class="subheading mb-3">Municipalidad de Monterrico-Jujuy</div>
+                                    <p>En la Dirección de Deportes desempeñé diversas funciones y responsabilidades, entre ellas:</p>
+
+                                    <ul>
+                                        <li>Responsable del área de comunicación social y soporte informático desde el año 2016.</li>
+                                        <li>Responsable de la organización del torneo Liga Municipal de Fútbol año 2016.</li>
+                                        <li>Responsable de las Olimpíadas Infantiles de Invierno año 2016, Campeonato Infantil Municipal de Fútbol año 2017 y 2018.</li>
+                                        <li>Responsable ante el Ministerio de Educación de la Provincia por los Juegos Escolares 2018 y 2021.</li>
+                                    </ul>
+
+                                    <p>Estas experiencias me permitieron desarrollar habilidades en la organización de eventos deportivos y en la gestión de equipos de trabajo, lo que considero será de gran utilidad para el éxito de los proyectos en la Dirección a mi cargo.</p>
+                                </div>
+                                <div class="flex-shrink-0"><span class="text-primary">Enero 2010 - Diciembre 2021</span></div>
+                            </div>
+                            <div class="d-flex flex-column flex-md-row justify-content-between">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">Inspector de Transito</h3>
+                                    <div class="subheading mb-3">Municipalidad de Monterrico-Jujuy</div>
+                                    <p>Desde el año 2010, he desempeñado la labor de inspector de tránsito en la Municipalidad de Monterrico. En el año 2013, tuve la oportunidad de participar en una capacitación de perfeccionamiento laboral, lo que me permitió obtener el certificado nacional de "Instructor Evaluador Nacional de la ANSV (Agencia Nacional de Seguridad Vial). Durante el año 2014, me desempeñé en la función de instructor evaluador en la Municipalidad de Monterrico.</p>
+
+                                    <p>Además, como Director de la Dirección de Producción y Medio Ambiente de la Municipalidad de Monterrico, lidero el área de "Municipio Saludable" que atiende la problemática social de la salud, incluyendo la lucha contra el dengue y otras enfermedades, que en muchas ocasiones están relacionadas con los problemas del tránsito y la falta de higiene ambiental.</p>
+
+                                    <p>Estoy seguro de que mi experiencia en el área de tránsito y seguridad vial, junto con mi compromiso con la salud pública, me permitirán cumplir con eficacia mis responsabilidades en la Municipalidad de Monterrico.</p>
+                                </div>
+                                <div class="flex-shrink-0"><span class="text-primary">Septiembre 2010 - Diciembre 2013</span></div>
+                            </div>
+                            <div class="d-flex flex-column flex-md-row justify-content-between">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">Jefe Equipo Técnico - Desarrollo de Proyectos </h3>
+                                    <div class="subheading mb-3">Fundacion Jujuy 3000</div>
+                                    <p>En el año 2008, tuve la oportunidad de ocupar el cargo de Jefe de Equipo Técnico de Desarrollo de Proyectos, en el cual lideré la ejecución de 8 proyectos para el Programa de Pequeñas Donaciones de la ONU. Gracias a nuestro arduo trabajo, logramos que 7 de estos proyectos fueran aprobados, lo que significó un gran éxito para nuestro equipo y una contribución importante al desarrollo sostenible de nuestra comunidad.</p>
+                                    </div>
+                                <div class="flex-shrink-0"><span class="text-primary">Enero 2008 - Agosto 2010</span></div>
+                            </div>
+                            <div class="d-flex flex-column flex-md-row justify-content-between">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">Capacitador Laboral</h3>
+                                    <div class="subheading mb-3">Ministerio de Educación de la Provincia de Jujuy</div>
+                                    <p>También he tenido la oportunidad de compartir mis conocimientos y habilidades con otros, ya que he sido facilitador y docente en diversas capacitaciones. He dictado cursos sobre temas como informática básica, uso de herramientas de ofimática, prevención de riesgos laborales y emprendimiento, entre otros. Es para mí un orgullo poder contribuir al desarrollo de la educación y capacitación en mi comunidad, y estoy agradecido por haber tenido esta oportunidad en mi carrera profesional.</p>
+                                    </div>
+                                <div class="flex-shrink-0"><span class="text-primary">Año 2001 - Diciembre 2007</span></div>
+                            </div>
+                            <div class="d-flex flex-column flex-md-row justify-content-between">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">Productor Agropecuario Independiente</h3>
+                                    <div class="subheading mb-3">Establecimiento agropecuario Familiar</div>
+                                    <p>Y desde Mi juventud he trabajado junto a mi familia en un establecimiento agrícola, donde he aprendido fundamentos de Administración de empresa, comercio, manejo de recursos humanos, gestión de maquinaria agrícola y organización de tareas.</p>
+                                    </div>
+                                <div class="flex-shrink-0"><span class="text-primary">Año 2001 - Diciembre 2007</span></div>
+                            </div>
+                        
+                        </div>
+                    
+                        <div class="col-lg-1 video-container">
+                            <!-- contenido de la columna derecha -->
+                        
+                            <video width="120" height="150" controls preload>
+                                
+                                <source src="multimedia/02 CV Mario Rene Monti Experiencia.mp4" type="video/mp4">
+                                <!-- <source src="ruta-del-video.webm" type="video/webm"> -->
+                                Tu navegador no soporta la etiqueta de video.
+                            </video>
+                            <p>NOTA: la voz del video fue generada con IA</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Educacion-->
+            <section class="resume-section" id="education">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Educación</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Instituto Ntra Sra de Las Mercedes</h3>
+                            <div class="subheading mb-3">Bachiller</div>
+                            <div>titulo nivel secundario</div>
+                            <p>Año 1985</p>
+                        
+                            <h3 class="mb-0">Instituto Superior Jujuy</h3>
+                            <div class="subheading mb-3">Informatica</div>
+                            <div>Analista de Sistemas de Computación</div>
+                            <p>Año 2003</p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">Marzo 2000 - Septiembre 2003</span></div>
+                    </div>
+                    
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Lenguajes 
+            hoy no tiene sentido agregar
+            basic, pascal, y otros que aprendi en mi juventud-->
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Conocimientos</h2>
+                    <div class="subheading mb-3">lenguajes de Programacion & Herramientas</div>
+                    <ul class="list-inline dev-icons">
+                         
+                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
+                                         
+                        <li class="list-inline-item"><i class="fab fa-php"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-file-code"></i></li>
+                    </ul>
+                    <div class="subheading mb-3">Habilidades</div>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            <p>En el pasado, manejé los gestores de datos DBase III Plus y Clipper
+                                con los cuales desarrollé sistemas de gestion de tres empresas funerarias, 
+                                un sistema de seguimiento de expedientes para el Consejo Deliberante de Monterrico,
+                                sistema de gestíon de Finca tabacalera, el cual posteriormente fue migrado a Exel a pedido de dos clientes
+                            </p>
+                            
+
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            <p>Me muevo con comodidad tanto en Windows como en Linux</p>
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            <p>conozco y trabaje con lenguajes hoy antiguos: basic, pascal, cobol, entre otros</p>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Intereses-->
+            <section class="resume-section" id="interests">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Actividades y Organizaciones</h2>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Cooperadoras Escolares</li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Centros Vecinales</li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Fundaciones y Asociaciones abocadas a temáticas ambientales</li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Fundador Fundación “Por Nuestros Hijos”</li>
+                      </ul>
+                    </div>
+            </section>
+            <hr class="m-0" />
+            <!-- otras habilidades-->
+            <section class="resume-section" id="awards">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Conocimientos & Habilidades Adquiridas</h2>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Técnico medio Ambiental
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Gestion de Redes Sociales
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Produccion Agropecuaria Orgánica 
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Administración de Organizaciones no Gubernamentales
+                        </li>
+                        
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <!-- Bootstrap core JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="js/jspdf.min.js"></script>
+    </body>
+</html>

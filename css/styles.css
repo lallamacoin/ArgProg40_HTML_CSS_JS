@@ -11448,19 +11448,38 @@ section.resume-section .resume-section-content {
   }
 }
 /* a partir de este punto esta añadido el codigo para los añadidos a la plantilla de CSS */
-/* agrego los botones de navegacion en el panel izquierdo*/
-.btn-arrow-down {
-  background-color: var(--bs-success); /* color de fondo */ /* cambie el color de fondo a verde */
-  border: none; /* borde */
-  color: white; /* color del texto */
-  padding: 12px 30px; /* relleno */
-  text-align: center; /* alineación de texto */
-  text-decoration: none; /* decoración de texto */
-  display: inline-block; /* muestra como elemento en línea */
-  font-size: 16px; /* tamaño de fuente */
-  margin: 4px 2px; /* margen */
-  cursor: pointer; /* cursor al pasar el mouse */
+
+/* pretendo centrar el video en las pantallas pequeñas */
+
+@media (max-width: 767px) {
+  .col-lg-1 {
+    text-align: center; /* centra el contenido horizontalmente */
+  }
+
+  video {
+    display: block; /* establece el elemento de video como bloque para poder centrarlo verticalmente */
+    margin: 0 auto; /* centra el contenido verticalmente */
+  }
 }
+
+
+
+/* agrego los botones de navegacion en el panel izquierdo
+al final no utilizo este boton por que no me gusta como queda
+/*
+.btn-arrow-down {
+  background-color: var(--bs-success); /* color de fondo */ /* cambie el color de fondo a verde 
+  border: none; /* borde 
+  color: white; /* color del texto 
+  padding: 12px 30px; /* relleno 
+  text-align: center; /* alineación de texto 
+  text-decoration: none; /* decoración de texto 
+  display: inline-block; /* muestra como elemento en línea 
+  font-size: 16px; // tamaño de fuente 
+  margin: 4px 2px; /* margen 
+  cursor: pointer; /* cursor al pasar el mouse 
+}
+*/
 
 .fa-angle-down {
   margin-left: 5px; /* margen a la izquierda */
